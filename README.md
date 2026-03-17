@@ -32,12 +32,11 @@ try:
     mac = address[ip]  # Get the MAC address for the IP
     print(f"IP: {ip} -> MAC: {mac}")
     c.send(mac.encode())
-```
-
 except KeyError:
     print(f"IP: {ip} not found in ARP table.")
     c.send("Not Found".encode())
-    c.close() s.close()
+```
+c.close() s.close()
 
 client.py import socket c = socket.socket() c.connect(('localhost', 8000))
 
