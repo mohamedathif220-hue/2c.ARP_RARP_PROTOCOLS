@@ -72,7 +72,7 @@ except KeyError:
     print(f"MAC: {mac} not found in RARP table.")
     c.send("Not Found".encode())
 ```
-    c.close() s.close()
+c.close() s.close()
 
 client.py client.py import socket c = socket.socket() c.connect(('localhost', 8000))
 
