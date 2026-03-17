@@ -32,22 +32,24 @@ try:
     mac = address[ip]  # Get the MAC address for the IP
     print(f"IP: {ip} -> MAC: {mac}")
     c.send(mac.encode())
+```
 
 except KeyError:
     print(f"IP: {ip} not found in ARP table.")
     c.send("Not Found".encode())
     c.close() s.close()
-```
 
 client.py import socket c = socket.socket() c.connect(('localhost', 8000))
 
 while True: ip = input("Enter IP address to find MAC (or type 'exit' to quit): ")
+```
 if ip.lower() == "exit":  
     break
 
 c.send(ip.encode())
 mac = c.recv(1024).decode()
 print(f"MAC Address for {ip}: {mac}")
+```
 c.close()
 ```
 ## OUPUT - ARP
@@ -60,16 +62,18 @@ server.py import socket s = socket.socket() s.bind(('localhost', 8000)) s.listen
 rarp_table = { "6A:08:AA:C2": "165.165.80.80", "8A:BC:E3:FA": "165.165.79.1" }
 
 while True: mac = c.recv(1024).decode()
+```
 if not mac:  
     break
 
 try:
     ip = rarp_table[mac]  
     print(f"MAC: {mac} -> IP: {ip}")
-    c.send(ip.encode())  
+    c.send(ip.encode())
 except KeyError:
     print(f"MAC: {mac} not found in RARP table.")
     c.send("Not Found".encode())
+```
     c.close() s.close()
 
 client.py client.py import socket c = socket.socket() c.connect(('localhost', 8000))
