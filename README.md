@@ -51,12 +51,10 @@ mac = c.recv(1024).decode()
 print(f"MAC Address for {ip}: {mac}")
 ```
 c.close()
-```
 ## OUPUT - ARP
 <img width="1041" height="496" alt="Screenshot 2026-03-17 081625" src="https://github.com/user-attachments/assets/d66b5a63-7faa-4948-a40c-21fc323fbf97" />
 
 ## PROGRAM - RARP
-```
 server.py import socket s = socket.socket() s.bind(('localhost', 8000)) s.listen(5) print("Server is listening for RARP requests...") c, addr = s.accept() print(f"Connection established with {addr}")
 
 rarp_table = { "6A:08:AA:C2": "165.165.80.80", "8A:BC:E3:FA": "165.165.79.1" }
@@ -80,7 +78,7 @@ client.py client.py import socket c = socket.socket() c.connect(('localhost', 80
 
 while True: mac = input("Enter MAC address to find IP (or type 'exit' to quit): ") if mac.lower() == "exit":
 break c.send(mac.encode()) ip = c.recv(1024).decode() print(f"IP Address for {mac}: {ip}") c.close()
-```
+
 ## OUPUT -RARP
 <img width="1040" height="418" alt="Screenshot 2026-03-17 081639" src="https://github.com/user-attachments/assets/3e4cb61b-203d-404f-aa87-0081726cc6f3" />
 
